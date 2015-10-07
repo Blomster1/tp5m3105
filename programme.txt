@@ -5,6 +5,8 @@ procedure principale()
   si (i>14)
     j=1;
   finsi
+  tantque (i<40) i = i+1; fintantque
   repeter i = i+1; jusqua (i>20)
+  
 finproc
 # Commentaire Final
