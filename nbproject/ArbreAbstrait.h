@@ -81,6 +81,7 @@ class NoeudInstSi : public Noeud {
     Noeud*  m_sequence;
 };
 
+<<<<<<< HEAD
 ////////////////////////////////////////////////////////////////////////////////
 class NoeudInstRepeter : public Noeud {
 // Classe pour représenter un noeud "instruction repeter"
@@ -94,6 +95,19 @@ class NoeudInstRepeter : public Noeud {
   private:
     Noeud*  m_condition;
     Noeud*  m_sequence;
+=======
+ ///////////////////////////////////////////////////////////////////////////////
+class NoeudInstTantque : public Noeud {
+//Classe pour representé un noeud "instruction tant que"
+public:
+    NoeudInstTantque(Noeud* condition, Noeud* sequence);
+    ~NoeudInstTantque(){}
+    int executer();
+    
+private :
+    Noeud* m_condition;
+    Noeud* m_sequence;
+>>>>>>> 8127341f568e8ad49c030252580717480a0ae35b
 };
 
 #endif /* ARBREABSTRAIT_H */
