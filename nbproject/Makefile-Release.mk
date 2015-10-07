@@ -35,8 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/598099660/main.o \
-	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/nbproject/ArbreAbstrait.o \
 	${OBJECTDIR}/nbproject/Interpreteur.o \
 	${OBJECTDIR}/nbproject/Lecteur.o \
@@ -69,16 +67,6 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tp5m3105: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tp5m3105 ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_ext/598099660/main.o: ../../../../pub/2a/M3105/tp5/main.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/598099660
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/598099660/main.o ../../../../pub/2a/M3105/tp5/main.cpp
-
-${OBJECTDIR}/main.o: main.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/nbproject/ArbreAbstrait.o: nbproject/ArbreAbstrait.cpp 
 	${MKDIR} -p ${OBJECTDIR}/nbproject
