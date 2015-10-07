@@ -89,6 +89,8 @@ NoeudInstTantque::NoeudInstTantque(Noeud* condition, Noeud* sequence)
 }
 
 int NoeudInstTantque::executer() {
-    
+    while(m_condition->executer()){
+        m_sequence-executer();
+    } return 0;
 }
 
