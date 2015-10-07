@@ -81,7 +81,6 @@ int NoeudInstSi::executer() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-<<<<<<< HEAD
 // NoeudInstRepeter
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -93,7 +92,6 @@ int NoeudInstRepeter::executer() {
   while (!m_condition->executer()) m_sequence->executer();
   return 0; // La valeur renvoyée ne représente rien !
 }
-=======
 // NoeudInstTantQue
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -106,5 +104,3 @@ int NoeudInstTantque::executer() {
         m_sequence-executer();
     } return 0;
 }
-
->>>>>>> 8127341f568e8ad49c030252580717480a0ae35b
