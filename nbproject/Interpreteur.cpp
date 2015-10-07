@@ -146,5 +146,5 @@ Noeud* Interpreteur::instRepeter() {
     testerEtAvancer("(");
     Noeud* condition = expression(); // On mémorise la condition
     testerEtAvancer(")");
-    return nullptr; // Et on renvoie un noeud Instruction Si
+    return  new NoeudInstRepeter(condition, sequence); // Et on renvoie un noeud Instruction Repeter
 }
