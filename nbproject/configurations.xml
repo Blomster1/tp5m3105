@@ -4,6 +4,13 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>../../../../pub/2a/M3105/tp5/ArbreAbstrait.h</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/Exceptions.h</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/Interpreteur.h</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/Lecteur.h</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/Symbole.h</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/SymboleValue.h</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/TableSymboles.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,7 +19,14 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>../../../../pub/2a/M3105/tp5/ArbreAbstrait.cpp</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/Interpreteur.cpp</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/Lecteur.cpp</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/Symbole.cpp</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/SymboleValue.cpp</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/TableSymboles.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>../../../../pub/2a/M3105/tp5/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -36,6 +50,76 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="../../../../pub/2a/M3105/tp5/ArbreAbstrait.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/ArbreAbstrait.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Exceptions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Interpreteur.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Interpreteur.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Lecteur.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Lecteur.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Symbole.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Symbole.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/SymboleValue.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/SymboleValue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/TableSymboles.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/TableSymboles.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -59,6 +143,76 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../../../../pub/2a/M3105/tp5/ArbreAbstrait.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/ArbreAbstrait.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Exceptions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Interpreteur.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Interpreteur.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Lecteur.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Lecteur.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Symbole.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/Symbole.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/SymboleValue.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/SymboleValue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/TableSymboles.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/TableSymboles.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../../pub/2a/M3105/tp5/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

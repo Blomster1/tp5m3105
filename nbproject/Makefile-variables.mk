@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=tp5
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/tp5
+CND_ARTIFACT_NAME_Debug=tp5m3105
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/tp5m3105
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=tp5.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/tp5.tar
+CND_PACKAGE_NAME_Debug=tp5m3105.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/tp5m3105.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=tp5
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/tp5
+CND_ARTIFACT_NAME_Release=tp5m3105
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/tp5m3105
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=tp5.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/tp5.tar
+CND_PACKAGE_NAME_Release=tp5m3105.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/tp5m3105.tar
 #
 # include compiler specific variables
 #
