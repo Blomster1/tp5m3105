@@ -99,6 +99,24 @@ private:
     Noeud* m_sequence;
 };
 
+///////////////////////////////////////////////////////////////////////////////
+
+class NoeudInstTantque : public Noeud {
+    //Classe pour representer un noeud "instruction tant que"
+    //  et ses 2 fils : la condition du repeter et la séquence d'instruction associée
+public:
+    NoeudInstTantque(Noeud* condition, Noeud* sequence);
+    // Construit une "instruction tant que" avec sa condition et sa séquence d'instruction
+    
+    ~NoeudInstTantque() {
+    } // A cause du destructeur virtuel de la classe Noeud
+    int executer(); // Exécute l'instruction tant que : tant que la condition est vraie, on fait la séquence
+
+private:
+    Noeud* m_condition;
+    Noeud* m_sequence;
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 
 class NoeudInstRepeter : public Noeud {
@@ -119,18 +137,56 @@ private:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class NoeudInstTantque : public Noeud {
-    //Classe pour representé un noeud "instruction tant que"
+class NoeudInstPour : public Noeud {
+    //Classe pour representer un noeud "instruction pour"
+    //  et ses 4 fils : l'initialisation de la variable incrémentée, la condition d'incrémentation, l'incrémentation et la séquence d'instruction
 public:
-    NoeudInstTantque(Noeud* condition, Noeud* sequence);
-
-    ~NoeudInstTantque() {
-    }
-    int executer();
+    NoeudInstPour(Noeud* initialisation, Noeud* condition, Noeud* incrementation, Noeud* instruction);
+    // Construit une "instruction pour" avec son initialisation, sa condition, son incrémentation et sa séquence d'instruction
+    
+    ~NoeudInstPour() {
+    } // A cause du destructeur virtuel de la classe Noeud
+    int executer(); // Exécute l'instruction pour : pour la variable donnée, tant que la condition est fausse, on incrémente la variable et on fait la séquence
 
 private:
+    Noeud* m_initialisation;
     Noeud* m_condition;
+    Noeud* m_incrementation;
     Noeud* m_sequence;
+};
+
+///////////////////////////////////////////////////////////////////////////////
+
+class NoeudInstEcrire : public Noeud {
+    //Classe pour representer un noeud "instruction ecrire"
+    // et son fils : le vecteur à ecrire
+public:
+    NoeudInstEcrire(vector<Noeud*> vecteur);
+    // Construit une "instruction ecrire" avec son vecteur
+
+    ~NoeudInstEcrire() {
+    } // A cause du destructeur virtuel de la classe Noeud
+    int executer(); // Exécute l'instruction ecrire : ecrit le vecteur
+
+private:
+    vector<Noeud*> m_vecteur;
+};
+
+///////////////////////////////////////////////////////////////////////////////
+
+class NoeudInstLire : public Noeud {
+    //Classe pour representer un noeud "instruction lire"
+    //  et son fils : le vecteur à lire
+public:
+    NoeudInstLire(vector<Noeud*> vecteur);
+    // Construit une "instruction lire" avec son vecteur
+    
+    ~NoeudInstLire() {
+    } // A cause du destructeur virtuel de la classe Noeud
+    int executer(); // Exécute l'instruction lire : lit le vecteur
+
+private:
+    vector<Noeud*> m_vecteur;
 };
 
 #endif /* ARBREABSTRAIT_H */

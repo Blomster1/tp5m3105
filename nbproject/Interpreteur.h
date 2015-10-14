@@ -34,8 +34,11 @@ private:
     Noeud*  facteur();     //     <facteur> ::= <entier>  |  <variable>  |  - <facteur>  | non <facteur> | ( <expression> )
                            //   <opBinaire> ::= + | - | *  | / | < | > | <= | >= | == | != | et | ou
     Noeud*  instSi();      //      <instSi> ::= si ( <expression> ) <seqInst> finsi
+    Noeud*  instTantQue(); // <instTantQue> ::= tantque ( <expression> ) <seqInst> fintantque
     Noeud*  instRepeter(); // <instRepeter> ::= repeter <seqInst> jusqua ( <expression> )
-    Noeud*  instTantQue(); 
+    Noeud*  instPour();    //    <instPour> ::= pour ( [ <affectation> ] ; <expression> ; [ <affectation> ] ) <seqInst> finpour
+    Noeud*  instEcrire();  // <instEcrire>  ::= ecrire ( <expression> | <chaine> {, <expression> | <chaine> })
+    Noeud*  instLire();    //   <instLire>  ::= lire ( <variable> { , <variable> } )
     
     // outils pour simplifier l'analyse syntaxique
     void tester (const string & symboleAttendu) const throw (SyntaxeException);   // Si symbole courant != symboleAttendu, on lève une exception
