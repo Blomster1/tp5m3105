@@ -72,12 +72,30 @@ int NoeudOperateurBinaire::executer() {
 // NoeudInstSi
 ////////////////////////////////////////////////////////////////////////////////
 
-NoeudInstSi::NoeudInstSi(Noeud* condition, Noeud* sequence)
-: m_condition(condition), m_sequence(sequence) {
+NoeudInstSi::NoeudInstSi(Noeud* conditionSi, Noeud* sequenceSi, vector<Noeud*> vecteurConditionSinonsi, vector<Noeud*> vecteurSequenceSinonsi, Noeud* sequenceSinon)
+: m_conditionSi(conditionSi), m_sequenceSi(sequenceSi), m_vecteurConditionSinonsi(vecteurConditionSinonsi), m_vecteurSequenceSinonsi(vecteurSequenceSinonsi), m_sequenceSinon(sequenceSinon) {
 }
 
 int NoeudInstSi::executer() {
-    if (m_condition->executer()) m_sequence->executer();
+    int i = 0;
+    bool cond = false;
+    if (m_conditionSi->executer()) {
+        m_sequenceSi->executer();
+    } else {
+        while (!cond && i < m_vecteurConditionSinonsi.size()) {
+            if (m_vecteurConditionSinonsi[i]->executer()) {
+                m_vecteurSequenceSinonsi[i]->executer();
+                cond = true;
+            } else {
+                i++;
+            }
+        }
+        
+        if (!cond && m_sequenceSinon != nullptr) {
+            m_sequenceSinon->executer();
+        }
+    }
+
     return 0; // La valeur renvoyée ne représente rien !
 }
 
@@ -131,16 +149,18 @@ NoeudInstEcrire::NoeudInstEcrire(vector <Noeud*> vecteur)
 }
 
 int NoeudInstEcrire::executer() {
-    /*
     for (unsigned int i = 0; i < m_vecteur.size(); i++) {
-
-        if ((typeid (*m_vecteur[i]) == typeid (SymboleValue) && *((SymboleValue*) m_vecteur[i]) == "<CHAINE>")) {
-            cout << *((SymboleValue*) m_vecteur[i])->getChaine();
+        if (typeid (*m_vecteur[i]) == typeid (SymboleValue)) {
+            if (*((SymboleValue*) m_vecteur[i]) == "<CHAINE>") {
+                cout << ((SymboleValue*) m_vecteur[i])->getChaine().substr(1, ((SymboleValue*) m_vecteur[i])->getChaine().size() - 2);
+            } else {
+                cout << " " << ((SymboleValue*) m_vecteur[i])->executer();
+            }
         } else {
-            *(m_vecteur[i])->executer();
+            cout << ((Noeud*) m_vecteur[i])->executer();
         }
     }
-    */
+    cout << "\n";
     return 0;
 }
 
@@ -152,7 +172,12 @@ NoeudInstLire::NoeudInstLire(vector<Noeud*> vecteur)
 : m_vecteur(vecteur) {
 }
 
-int NoeudInstTantque::executer() {
-    /**/
+int NoeudInstLire::executer() {
+    for (unsigned int i = 0; i < m_vecteur.size(); i++) {
+        int var_temp;
+        cout << "Saisir " << ((SymboleValue*) m_vecteur[i])->getChaine() << " : ";
+        cin >> var_temp;
+        ((SymboleValue*) m_vecteur[i])->setValeur(var_temp);
+    }
     return 0;
 }

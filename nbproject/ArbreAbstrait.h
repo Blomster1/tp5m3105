@@ -87,7 +87,7 @@ class NoeudInstSi : public Noeud {
     // Classe pour représenter un noeud "instruction si"
     //  et ses 2 fils : la condition du si et la séquence d'instruction associée
 public:
-    NoeudInstSi(Noeud* condition, Noeud* sequence);
+    NoeudInstSi(Noeud* conditionSi, Noeud* sequenceSi, vector<Noeud*> vecteurConditionSinonsi, vector<Noeud*> vecteurSequenceSinonsi, Noeud* sequenceSinon);
     // Construit une "instruction si" avec sa condition et sa séquence d'instruction
 
     ~NoeudInstSi() {
@@ -95,8 +95,11 @@ public:
     int executer(); // Exécute l'instruction si : si condition vraie on exécute la séquence
 
 private:
-    Noeud* m_condition;
-    Noeud* m_sequence;
+    Noeud* m_conditionSi;
+    Noeud* m_sequenceSi;
+    vector<Noeud*> m_vecteurConditionSinonsi;
+    vector<Noeud*> m_vecteurSequenceSinonsi;
+    Noeud* m_sequenceSinon;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -141,7 +144,7 @@ class NoeudInstPour : public Noeud {
     //Classe pour representer un noeud "instruction pour"
     //  et ses 4 fils : l'initialisation de la variable incrémentée, la condition d'incrémentation, l'incrémentation et la séquence d'instruction
 public:
-    NoeudInstPour(Noeud* initialisation, Noeud* condition, Noeud* incrementation, Noeud* instruction);
+    NoeudInstPour(Noeud* initialisation, Noeud* condition, Noeud* incrementation, Noeud* sequence);
     // Construit une "instruction pour" avec son initialisation, sa condition, son incrémentation et sa séquence d'instruction
     
     ~NoeudInstPour() {

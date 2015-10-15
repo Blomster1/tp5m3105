@@ -143,13 +143,31 @@ Noeud* Interpreteur::facteur() {
 
 Noeud* Interpreteur::instSi() {
     // <instSi> ::= si ( <expression> ) <seqInst> finsi
+    vector<Noeud *> vecteurConditionSinonsi;
+    vector<Noeud *> vecteurSequenceSinonsi;
+    Noeud* sequenceSinon;
     testerEtAvancer("si");
     testerEtAvancer("(");
-    Noeud* condition = expression(); // On mémorise la condition
+    Noeud* conditionSi = expression(); // On mémorise la condition
     testerEtAvancer(")");
-    Noeud* sequence = seqInst(); // On mémorise la séquence d'instruction
+    Noeud* sequenceSi = seqInst(); // On mémorise la séquence d'instruction
+    while (m_lecteur.getSymbole() == "sinonsi") {
+        testerEtAvancer("sinonsi");
+        testerEtAvancer("(");
+        Noeud* condition = expression();
+        vecteurConditionSinonsi.push_back(condition);
+        testerEtAvancer(")");
+        Noeud* sequence = seqInst();
+        vecteurSequenceSinonsi.push_back(sequence);
+    }
+    if (m_lecteur.getSymbole() == "sinon") {
+        testerEtAvancer("sinon");
+        sequenceSinon = seqInst();
+    } else {
+        sequenceSinon = nullptr;
+    }
     testerEtAvancer("finsi");
-    return new NoeudInstSi(condition, sequence); // Et on renvoie un noeud Instruction Si
+    return new NoeudInstSi(conditionSi, sequenceSi, vecteurConditionSinonsi, vecteurSequenceSinonsi, sequenceSinon); // Et on renvoie un noeud Instruction Si
 }
 
 Noeud* Interpreteur::instTantQue() {
@@ -176,31 +194,52 @@ Noeud* Interpreteur::instRepeter() {
 
 Noeud* Interpreteur::instPour() {
     // <instPour> ::= pour ( [ <affectation> ] ; <expression> ; [ <affectation> ] ) <seqInst> finpour
-    
-    return nullptr; // Et on renvoie un noeud Instruction Pour
+    testerEtAvancer("pour");
+    testerEtAvancer("(");
+    Noeud* initialisation = affectation();
+    testerEtAvancer(";");
+    Noeud* condition = expression();
+    testerEtAvancer(";");
+    Noeud* incrementation = affectation();
+    testerEtAvancer(")");
+    Noeud* sequence = seqInst();
+    testerEtAvancer("finpour");
+    return new NoeudInstPour(initialisation, condition, incrementation, sequence); // Et on renvoie un noeud Instruction Pour
 }
 
 Noeud* Interpreteur::instEcrire() {
     // <instEcrire>  ::= ecrire ( <expression> | <chaine> {, <expression> | <chaine> })
-    vector<Noeud *> vecteur = new vector<Noeud *>();
+    vector<Noeud *> vecteur;
     testerEtAvancer("ecrire");
-    testerEtAvancer("(");
+    tester("(");
     do {
+        m_lecteur.avancer();
         if (m_lecteur.getSymbole() == "<CHAINE>") {
             Noeud* n = m_table.chercheAjoute(m_lecteur.getSymbole());
             vecteur.push_back(n);
+            m_lecteur.avancer();
         } else {
             Noeud* n = expression();
             vecteur.push_back(n);
         }
-        m_lecteur.avancer();
     } while (m_lecteur.getSymbole() == ",");
     testerEtAvancer(")");
+    testerEtAvancer(";");
     return new NoeudInstEcrire(vecteur); // Et on renvoie un noeud Instruction Ecrire
 }
 
 Noeud* Interpreteur::instLire() {
-    // <instLire>  ::= lire ( <variable> { , <variable> } )
-    
-    return nullptr; // Et on renvoie un noeud Instruction Lire
+    // <instLire>  ::= lire ( <variable> { , <variable> } )vector<Noeud *> vecteur = new vector<Noeud *>();
+    vector<Noeud *> vecteur;
+    testerEtAvancer("lire");
+    tester("(");
+    do {
+        m_lecteur.avancer();
+        Noeud* n = m_table.chercheAjoute(m_lecteur.getSymbole());
+        vecteur.push_back(n);
+        m_lecteur.avancer();
+    } while (m_lecteur.getSymbole() == ",");
+    testerEtAvancer(")");
+    testerEtAvancer(";");
+    return new NoeudInstLire(vecteur); // Et on renvoie un noeud Instruction Lire
 }

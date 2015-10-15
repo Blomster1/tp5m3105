@@ -3,27 +3,50 @@
 
 procedure principale()
   
-  i = 12+3;
+  a = 0;
+  b = 0;
+
+  i = 12+6;
+
+  #i=15
   
-  si (i>14)
+  si (i==15)
     j = 1;
+  sinonsi (i==16)
+    j = 2;
+  sinonsi (i==17)
+    j = 3;
+  sinon
+    j = 4;
   finsi
   
+  #j=1
+
   tantque (i<20) 
     i = i+1;
   fintantque
   
-  repeter 
-    j = j+1;
-  jusqua (j>20)
+  #i=20
+
+  #repeter 
+  #  j = j+1;
+  #jusqua (j>19)
   
-  pour ( k = 1 ; k < 20 ; k = k+1 )
+  #j=20
+
+  pour (k = 1; k < 20; k = k+1)
     k = k;
   finpour
+
+  #k=20
   
-  ecrire ( i, j )
+  ecrire ("i =", i);
+  ecrire ("j =", j);
+  ecrire ("i =", i, " j =", j);
   
-  lire ( a, b )
+  lire (a);
+  lire (b);
+  lire (a, b);
   
 finproc
 # Commentaire Final
