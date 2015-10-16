@@ -9,6 +9,7 @@ m_lecteur(fichier), m_table(), m_arbre(nullptr) {
 
 void Interpreteur::analyse() {
     m_arbre = programme(); // on lance l'analyse de la première règle
+    if (m_erreurTrouve) m_arbre = nullptr;
 }
 
 void Interpreteur::tester(const string & symboleAttendu) const throw (SyntaxeException) {
@@ -70,24 +71,37 @@ Noeud* Interpreteur::seqInst() {
 
 Noeud* Interpreteur::inst() {
     // <inst> ::= <affectation>  ; | <instSi>
-    if (m_lecteur.getSymbole() == "<VARIABLE>") {
-        Noeud *affect = affectation();
-        testerEtAvancer(";");
-        return affect;
-    } else if (m_lecteur.getSymbole() == "si") {
-        return instSi();
-    } else if (m_lecteur.getSymbole() == "tantque") {
-        return instTantQue();
-    } else if (m_lecteur.getSymbole() == "repeter") {
-        return instRepeter();
-    } else if (m_lecteur.getSymbole() == "pour") {
-        return instPour();
-    } else if (m_lecteur.getSymbole() == "ecrire") {
-        return instEcrire();
-    } else if (m_lecteur.getSymbole() == "lire") {
-        return instLire();
-        // Compléter les alternatives chaque fois qu'on rajoute une nouvelle instruction
-    } else erreur("Instruction incorrecte");
+    try {
+        if (m_lecteur.getSymbole() == "<VARIABLE>") {
+            Noeud *affect = affectation();
+            testerEtAvancer(";");
+            return affect;
+        } else if (m_lecteur.getSymbole() == "si") {
+            return instSi();
+        } else if (m_lecteur.getSymbole() == "tantque") {
+            return instTantQue();
+        } else if (m_lecteur.getSymbole() == "repeter") {
+            return instRepeter();
+        } else if (m_lecteur.getSymbole() == "pour") {
+            return instPour();
+        } else if (m_lecteur.getSymbole() == "ecrire") {
+            return instEcrire();
+        } else if (m_lecteur.getSymbole() == "lire") {
+            return instLire();
+            // Compléter les alternatives chaque fois qu'on rajoute une nouvelle instruction
+        } else erreur("Instruction incorrecte");
+    } catch (SyntaxeException &e) {
+        cout << e.what() << endl;
+        m_erreurTrouve = true;
+        if (m_lecteur.getSymbole() != "finproc" &&
+            (m_lecteur.getSymbole() == "<VARIABLE>"
+            && m_lecteur.getSymbole() == "si"
+            && m_lecteur.getSymbole() == "tantque"
+            && m_lecteur.getSymbole() == "repeter"
+            && m_lecteur.getSymbole() == "pour"
+            && m_lecteur.getSymbole() == "ecrire"
+            && m_lecteur.getSymbole() == "lire")) m_lecteur.avancer();
+    }
 }
 
 Noeud* Interpreteur::affectation() {

@@ -6,11 +6,11 @@ procedure principale()
   a = 0;
   b = 0;
 
-  i = 12+6;
+  i = 12+6
 
   #i=15
   
-  si (i==15)
+  si (i==15
     j = 1;
   sinonsi (i==16)
     j = 2;
